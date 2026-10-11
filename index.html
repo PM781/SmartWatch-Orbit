@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFD3BE" />
+    <meta
+      name="description"
+      content="Orbit One is a smartwatch with a 7-day battery, a bright always-on display and just enough features to get out of your way."
+    />
+    <title>Orbit One | A watch that lets you put the phone down</title>
+
+    <!-- Fonts: Bricolage Grotesque for everything, Caveat for one handwritten note -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Caveat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Bricolage Grotesque"', "system-ui", "sans-serif"],
+              hand: ["Caveat", "cursive"],
+            },
+            colors: {
+              dawn: "#FFD3BE",
+              day: "#CFE8F7",
+              noon: "#FFEAB0",
+              dusk: "#DCCBF3",
+              night: "#1F2350",
+              deep: "#151838",
+              coral: "#FF6F59",
+              sun: "#FFD34E",
+              leaf: "#A9D9B8",
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="bg-dawn font-sans text-night">
+    <header class="glass sticky top-0 z-50 border-b border-night/10">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3" aria-label="Main navigation">
+        <a href="#home" class="text-2xl font-extrabold tracking-tight">orbit<span class="text-coral">.</span></a>
+
+        <ul class="hidden items-center gap-1 text-sm font-semibold md:flex">
+          <li><a href="#features" class="rounded-full px-4 py-2 transition hover:bg-night/10">Features</a></li>
+          <li><a href="#benefits" class="rounded-full px-4 py-2 transition hover:bg-night/10">Benefits</a></li>
+          <li><a href="#reviews" class="rounded-full px-4 py-2 transition hover:bg-night/10">Reviews</a></li>
+          <li><a href="#pricing" class="rounded-full px-4 py-2 transition hover:bg-night/10">Pricing</a></li>
+        </ul>
+
+        <div class="hidden md:block">
+          <a href="#pricing" class="btn btn-sm">Buy Now</a>
+        </div>
+
+        <button
+          id="menu-btn"
+          class="grid h-11 w-11 place-items-center rounded-full border-2 border-night md:hidden"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 8h16M4 16h16" />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden border-t border-night/10 bg-white/90 md:hidden">
+        <ul class="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-4 text-lg font-semibold">
+          <li><a href="#features" class="block rounded-xl px-3 py-3 hover:bg-night/10">Features</a></li>
+          <li><a href="#benefits" class="block rounded-xl px-3 py-3 hover:bg-night/10">Benefits</a></li>
+          <li><a href="#reviews" class="block rounded-xl px-3 py-3 hover:bg-night/10">Reviews</a></li>
+          <li><a href="#pricing" class="block rounded-xl px-3 py-3 hover:bg-night/10">Pricing</a></li>
+          <li class="pt-2"><a href="#pricing" class="btn w-full">Buy Now</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="bg-dawn">
+        <div class="mx-auto grid max-w-6xl items-center gap-12 px-5 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-24">
+          <div>
+            <h1 class="max-w-xl text-[2.7rem] font-extrabold leading-[1.02] tracking-tight sm:text-6xl lg:text-[4.5rem]">
+              Finally, a watch that lets you put the phone down.
+            </h1>
+            <p class="mt-6 max-w-md text-lg leading-relaxed text-night/80">
+              Orbit One tracks your sleep, your heart and your runs, then gets out of the way. One
+              charge lasts a whole week, so you can stop thinking about it.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#pricing" class="btn">Buy Now</a>
+              <a href="#features" class="btn btn-ghost">Learn More</a>
+            </div>
+
+            <p class="mt-6 text-sm text-night/70">Free shipping, 30-day returns and a 2-year warranty.</p>
+          </div>
+
+          <!-- The watch shows the real time (see js/main.js) -->
+          <div class="relative mx-auto w-full max-w-sm">
+            <div class="absolute left-1/2 top-1/2 h-[19rem] w-[19rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-noon sm:h-[24rem] sm:w-[24rem]" aria-hidden="true"></div>
+
+            <svg class="relative mx-auto block w-56 sm:w-72" viewBox="0 0 360 470" role="img" aria-label="The Orbit One watch, showing the current time">
+              <defs>
+                <clipPath id="face-clip">
+                  <rect x="92" y="122" width="176" height="216" rx="44" />
+                </clipPath>
+              </defs>
+
+              <!-- soft shadow on the floor -->
+              <ellipse cx="180" cy="458" rx="92" ry="9" fill="#1F2350" opacity="0.12" />
+
+              <!-- straps -->
+              <rect x="124" y="6" width="112" height="150" rx="22" fill="#FF8E72" />
+              <rect x="124" y="304" width="112" height="152" rx="22" fill="#FF8E72" />
+              <g fill="#1F2350" opacity="0.8">
+                <circle cx="180" cy="388" r="5" />
+                <circle cx="180" cy="410" r="5" />
+                <circle cx="180" cy="432" r="5" />
+              </g>
+
+              <!-- crown and case -->
+              <rect x="286" y="206" width="16" height="46" rx="6" fill="#FFD34E" />
+              <rect x="70" y="100" width="220" height="260" rx="66" fill="#1F2350" />
+
+              <!-- watch face: a tiny landscape -->
+              <rect x="92" y="122" width="176" height="216" rx="44" fill="#CFE8F7" />
+              <g clip-path="url(#face-clip)">
+                <circle cx="214" cy="272" r="26" fill="#FFD34E" />
+                <path d="M92 338 V284 C130 250 175 250 205 280 C225 298 250 270 268 262 V338 Z" fill="#A9D9B8" />
+                <path d="M92 338 V312 C130 292 160 292 190 314 C215 330 245 304 268 300 V338 Z" fill="#7FC59A" />
+              </g>
+
+              <!-- hour marks -->
+              <g stroke="#1F2350" stroke-linecap="round">
+                <g stroke-width="5">
+                  <line x1="180" y1="166" x2="180" y2="152" />
+                  <line x1="244" y1="230" x2="258" y2="230" />
+                  <line x1="180" y1="294" x2="180" y2="308" />
+                  <line x1="116" y1="230" x2="102" y2="230" />
+                </g>
+                <g stroke-width="3">
+                  <line x1="215" y1="169.4" x2="219" y2="162.4" />
+                  <line x1="240.6" y1="195" x2="247.5" y2="191" />
+                  <line x1="240.6" y1="265" x2="247.5" y2="269" />
+                  <line x1="215" y1="290.6" x2="219" y2="297.6" />
+                  <line x1="145" y1="290.6" x2="141" y2="297.6" />
+                  <line x1="119.4" y1="265" x2="112.5" y2="269" />
+                  <line x1="119.4" y1="195" x2="112.5" y2="191" />
+                  <line x1="145" y1="169.4" x2="141" y2="162.4" />
+                </g>
+              </g>
+
+              <!-- date -->
+              <text id="watch-date" x="180" y="204" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-size="15" font-weight="700" fill="#1F2350">Sun 11</text>
+
+              <g id="hand-hour" transform="rotate(305 180 230)">
+                <line x1="180" y1="230" x2="180" y2="188" stroke="#1F2350" stroke-width="8" stroke-linecap="round" />
+              </g>
+              <g id="hand-min" transform="rotate(60 180 230)">
+                <line x1="180" y1="230" x2="180" y2="164" stroke="#1F2350" stroke-width="5" stroke-linecap="round" />
+              </g>
+              <g id="hand-sec" transform="rotate(180 180 230)">
+                <line x1="180" y1="246" x2="180" y2="158" stroke="#FF6F59" stroke-width="2.5" stroke-linecap="round" />
+              </g>
+              <circle cx="180" cy="230" r="7" fill="#FF6F59" stroke="#1F2350" stroke-width="3" />
+
+              <!-- glass shine -->
+              <path d="M110 160 Q110 140 132 134" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+            </svg>
+
+            <!-- handwritten aside -->
+            <div class="absolute left-0 top-0 -rotate-6 sm:-left-8" aria-hidden="true">
+              <p class="font-hand text-2xl font-semibold leading-6 sm:text-3xl">psst, it's showing<br />your real time</p>
+              <svg class="ml-16 mt-1 h-10 w-14" viewBox="0 0 70 50" fill="none" stroke="#1F2350" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 6 C20 6 48 14 58 40" />
+                <path d="M47.4 33.1 L58 42 L60.6 28.3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="features" class="bg-day">
+        <div class="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <div class="max-w-2xl">
+            <h2 class="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">A day on your wrist</h2>
+            <p class="mt-4 max-w-md text-lg text-night/80">Five moments where Orbit does its job.</p>
+          </div>
+
+          <ol class="mt-12">
+            <li class="grid grid-cols-[5.75rem_1fr] gap-x-5 gap-y-4 border-t-2 border-night/15 py-8 sm:grid-cols-[9rem_1fr_12rem] sm:items-center sm:gap-x-8 lg:grid-cols-[11rem_1fr_13rem]">
+              <time datetime="06:45" class="text-3xl font-extrabold leading-none sm:text-5xl lg:text-6xl">6:45<span class="mt-1 block text-sm font-semibold sm:text-base">am</span></time>
+              <div>
+                <h3 class="text-2xl font-bold">Wake up to a sleep score</h3>
+                <p class="mt-2 max-w-md text-night/80">See how you slept in one number, plus a couple of plain-English tips. No charts to decode.</p>
+              </div>
+              <div class="col-start-2 rounded-2xl bg-night p-4 text-white sm:col-start-auto">
+                <p class="text-xs text-white/70">Sleep score</p>
+                <p class="text-4xl font-extrabold leading-none">86</p>
+                <p class="mt-1 text-xs text-white/70">7h 42m asleep</p>
+              </div>
+            </li>
+            <li class="grid grid-cols-[5.75rem_1fr] gap-x-5 gap-y-4 border-t-2 border-night/15 py-8 sm:grid-cols-[9rem_1fr_12rem] sm:items-center sm:gap-x-8 lg:grid-cols-[11rem_1fr_13rem]">
+              <time datetime="09:10" class="text-3xl font-extrabold leading-none sm:text-5xl lg:text-6xl">9:10<span class="mt-1 block text-sm font-semibold sm:text-base">am</span></time>
+              <div>
+                <h3 class="text-2xl font-bold">Check the time, even in the sun</h3>
+                <p class="mt-2 max-w-md text-night/80">The 1.5″ always-on AMOLED display stays bright and readable outdoors. Pick from 100+ watch faces.</p>
+              </div>
+              <div class="col-start-2 rounded-2xl bg-night p-4 text-white sm:col-start-auto">
+                <p class="text-xs text-white/70">Always-on display</p>
+                <p class="text-4xl font-extrabold leading-none text-sun">9:10</p>
+                <p class="mt-1 text-xs text-white/70">Bright in direct sun</p>
+              </div>
+            </li>
+            <li class="grid grid-cols-[5.75rem_1fr] gap-x-5 gap-y-4 border-t-2 border-night/15 py-8 sm:grid-cols-[9rem_1fr_12rem] sm:items-center sm:gap-x-8 lg:grid-cols-[11rem_1fr_13rem]">
+              <time datetime="13:30" class="text-3xl font-extrabold leading-none sm:text-5xl lg:text-6xl">1:30<span class="mt-1 block text-sm font-semibold sm:text-base">pm</span></time>
+              <div>
+                <h3 class="text-2xl font-bold">A quiet heart check</h3>
+                <p class="mt-2 max-w-md text-night/80">Heart rate and blood oxygen (SpO₂) are tracked all day in the background, then shown as simple daily charts.</p>
+              </div>
+              <div class="col-start-2 rounded-2xl bg-night p-4 text-white sm:col-start-auto">
+                <p class="text-xs text-white/70">Heart rate</p>
+                <svg viewBox="0 0 200 60" class="mt-1 h-9 w-full" fill="none" aria-hidden="true">
+                  <path class="ecg" pathLength="400" d="M0 36 H52 L62 36 L72 10 L86 54 L96 36 H128 L136 28 L144 36 H200" stroke="#FF8E72" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p class="mt-1 text-sm font-bold">72 bpm</p>
+              </div>
+            </li>
+
+            <li class="grid grid-cols-[5.75rem_1fr] gap-x-5 gap-y-4 border-t-2 border-night/15 py-8 sm:grid-cols-[9rem_1fr_12rem] sm:items-center sm:gap-x-8 lg:grid-cols-[11rem_1fr_13rem]">
+              <time datetime="18:00" class="text-3xl font-extrabold leading-none sm:text-5xl lg:text-6xl">6:00<span class="mt-1 block text-sm font-semibold sm:text-base">pm</span></time>
+              <div>
+                <h3 class="text-2xl font-bold">Run, ride, swim</h3>
+                <p class="mt-2 max-w-md text-night/80">Built-in GPS and 100+ sport modes. It is 5 ATM water resistant too, so rain and pool laps are fine.</p>
+              </div>
+              <div class="col-start-2 rounded-2xl bg-night p-4 text-white sm:col-start-auto">
+                <p class="text-xs text-white/70">Evening run</p>
+                <svg viewBox="0 0 160 40" class="mt-1 h-8 w-full" fill="none" aria-hidden="true">
+                  <path d="M6 30 C30 4 55 38 80 20 S130 4 154 14" stroke="#A9D9B8" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7" />
+                  <circle cx="6" cy="30" r="4" fill="#A9D9B8" />
+                  <circle cx="154" cy="14" r="5" fill="#FF8E72" />
+                </svg>
+                <p class="mt-1 text-sm font-bold">5.2 km</p>
+              </div>
+            </li>
+            <li class="grid grid-cols-[5.75rem_1fr] gap-x-5 gap-y-4 border-y-2 border-night/15 py-8 sm:grid-cols-[9rem_1fr_12rem] sm:items-center sm:gap-x-8 lg:grid-cols-[11rem_1fr_13rem]">
+              <time datetime="23:30" class="text-3xl font-extrabold leading-none sm:text-5xl lg:text-6xl">11:30<span class="mt-1 block text-sm font-semibold sm:text-base">pm</span></time>
+              <div>
+                <h3 class="text-2xl font-bold">Still has six days left</h3>
+                <p class="mt-2 max-w-md text-night/80">Charge it on Sunday and forget the charger until next Sunday. A full charge takes about 2 hours.</p>
+              </div>
+              <div class="col-start-2 rounded-2xl bg-night p-4 text-white sm:col-start-auto">
+                <p class="text-xs text-white/70">Battery</p>
+                <p class="text-4xl font-extrabold leading-none">86%</p>
+                <div class="mt-2 h-2 w-full rounded-full bg-white/20"><div class="h-2 w-[86%] rounded-full bg-leaf"></div></div>
+                <p class="mt-2 text-xs text-white/70">6 days left</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section id="benefits" class="bg-noon">
+        <div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 md:py-28 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-5 lg:self-start">
+            <h2 class="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">Less screen time. More actual time.</h2>
+            <p class="mt-5 max-w-md text-lg leading-relaxed text-night/80">
+              Orbit fits into your routine instead of asking you to change it. Here is what that
+              looks like in real life.
+            </p>
+            <ul class="mt-8 space-y-1 font-semibold">
+              <li>2-year warranty on every plan</li>
+              <li>Free shipping across India</li>
+              <li>30-day returns, no awkward questions</li>
+            </ul>
+          </div>
+
+          <div class="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:col-span-7">
+            <div class="border-t-2 border-night pt-5">
+              <h3 class="text-xl font-bold">Nudges, not nags</h3>
+              <p class="mt-2 text-night/80">A tap on the wrist when it matters. Everything else waits until you look.</p>
+            </div>
+            <div class="border-t-2 border-night pt-5">
+              <h3 class="text-xl font-bold">Less charging, more living</h3>
+              <p class="mt-2 text-night/80">Two hours to full, seven days of use. Your charger can retire to the drawer.</p>
+            </div>
+            <div class="border-t-2 border-night pt-5">
+              <h3 class="text-xl font-bold">Sleep you can understand</h3>
+              <p class="mt-2 text-night/80">One plain score every morning and a few tips. No jargon, no homework.</p>
+            </div>
+            <div class="border-t-2 border-night pt-5">
+              <h3 class="text-xl font-bold">Goes with everything</h3>
+              <p class="mt-2 text-night/80">Swap the strap in seconds and pick a face to match. Gym, class or a wedding, sorted.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="reviews" class="bg-dusk">
+        <div class="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <div class="max-w-2xl">
+            <h2 class="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">Overheard in the group chat</h2>
+            <p class="mt-4 max-w-md text-lg text-night/80">What early wearers had to say about it.</p>
+          </div>
+
+          <div class="mx-auto mt-12 flex max-w-2xl flex-col gap-8">
+            <!-- message 1 -->
+            <div class="flex items-end gap-3">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-sm font-bold" aria-hidden="true">AR</span>
+              <div class="max-w-[85%]">
+                <p class="mb-1 text-sm font-semibold text-night/70">Ananya, marathon trainee <span role="img" aria-label="5 out of 5 stars">★★★★★</span></p>
+                <p class="rounded-3xl rounded-bl-md bg-white px-5 py-4 text-lg leading-snug">
+                  I forgot my charger on a trip and the watch still made it through the whole week.
+                  Honestly shocked.
+                </p>
+              </div>
+            </div>
+
+            <!-- message 2 -->
+            <div class="flex flex-row-reverse items-end gap-3">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-night text-sm font-bold text-white" aria-hidden="true">RM</span>
+              <div class="max-w-[85%]">
+                <p class="mb-1 text-right text-sm font-semibold text-night/70">Rohan, software engineer <span role="img" aria-label="5 out of 5 stars">★★★★★</span></p>
+                <p class="rounded-3xl rounded-br-md bg-night px-5 py-4 text-lg leading-snug text-white">
+                  Looks right with gym clothes and with office clothes. The sleep score got me to bed
+                  earlier, which I did not expect.
+                </p>
+              </div>
+            </div>
+            <!-- message 3 -->
+            <div class="flex items-end gap-3">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-sm font-bold" aria-hidden="true">PS</span>
+              <div class="max-w-[85%]">
+                <p class="mb-1 text-sm font-semibold text-night/70">Priya, college student <span role="img" aria-label="4 out of 5 stars">★★★★☆</span></p>
+                <p class="rounded-3xl rounded-bl-md bg-white px-5 py-4 text-lg leading-snug">
+                  Setup took two minutes and the screen is lovely outside. I would love even more watch
+                  faces, but there are plenty already.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="pricing" class="stars text-white">
+        <div class="mx-auto max-w-6xl px-5 py-20 md:py-28">
+          <div class="max-w-2xl">
+            <h2 class="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">Pick your Orbit</h2>
+            <p class="mt-4 max-w-md text-lg text-white/80">Free shipping and 30-day returns on every plan.</p>
+          </div>
+          <div class="mx-auto mt-14 grid max-w-md gap-6 lg:max-w-none lg:grid-cols-3">
+            <!-- Lite -->
+            <div class="flex flex-col rounded-2xl border-2 border-white/25 p-7">
+              <h3 class="text-2xl font-bold">Orbit Lite</h3>
+              <p class="mt-1 text-white/70">Simple and light.</p>
+              <p class="mt-6 text-5xl font-extrabold">₹4,999</p>
+              <ul class="mt-6 flex-1 divide-y divide-white/20 text-white/90">
+                <li class="py-2">1.3″ AMOLED display</li>
+                <li class="py-2">5-day battery</li>
+                <li class="py-2">Heart rate and step tracking</li>
+                <li class="py-2">30 sport modes</li>
+              </ul>
+              <a href="#" class="btn btn-light mt-8">Choose Lite</a>
+            </div>
+
+            <!-- One -->
+            <div class="flex flex-col rounded-[2rem] bg-sun p-8 text-night lg:-mt-6 lg:pb-12">
+              <h3 class="text-2xl font-bold">Orbit One</h3>
+              <p class="mt-1 text-night/70">Does everything, no fuss.</p>
+              <p class="mt-6 text-5xl font-extrabold">₹7,999</p>
+              <ul class="mt-6 flex-1 divide-y divide-night/20">
+                <li class="py-2">1.5″ always-on AMOLED display</li>
+                <li class="py-2">7-day battery</li>
+                <li class="py-2">Heart rate, SpO₂ and sleep tracking</li>
+                <li class="py-2">Built-in GPS</li>
+                <li class="py-2">100+ sport modes</li>
+              </ul>
+              <a href="#" class="btn mt-8">Buy Orbit One</a>
+            </div>
+
+            <!-- Pro -->
+            <div class="flex flex-col rounded-2xl border-2 border-white/25 p-7">
+              <h3 class="text-2xl font-bold">Orbit Pro</h3>
+              <p class="mt-1 text-white/70">The fancy one.</p>
+              <p class="mt-6 text-5xl font-extrabold">₹11,999</p>
+              <ul class="mt-6 flex-1 divide-y divide-white/20 text-white/90">
+                <li class="py-2">Everything in Orbit One</li>
+                <li class="py-2">Titanium case and sapphire glass</li>
+                <li class="py-2">8 GB offline music storage</li>
+                <li class="py-2">Priority support</li>
+              </ul>
+              <a href="#" class="btn btn-light mt-8">Choose Pro</a>
+            </div>
+          </div>
+
+          <!-- Closing call to action -->
+          <div class="mt-20 flex flex-col items-start justify-between gap-6 border-t border-white/20 pt-12 md:flex-row md:items-center">
+            <div>
+              <h2 class="text-3xl font-extrabold leading-tight sm:text-4xl">Ready to put the phone down?</h2>
+              <p class="mt-2 max-w-md text-white/80">Orders ship in 3 to 5 days. Not happy? Send it back within 30 days.</p>
+            </div>
+            <a href="#" class="btn btn-sun shrink-0">Get Started</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ 7. FOOTER ============ -->
+    <footer class="bg-deep text-white/75">
+      <div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+        <div>
+          <a href="#home" class="text-2xl font-extrabold tracking-tight text-white">orbit<span class="text-coral">.</span></a>
+          <p class="mt-4 max-w-xs leading-relaxed">A simple, good-looking smartwatch for people who like their days in sync.</p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white">Contact</h3>
+          <ul class="mt-4 space-y-2">
+            <li>hello@orbit.example</li>
+            <li>+91 98765 43210</li>
+            <li>Bengaluru, Karnataka, India</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white">Follow along</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="#" class="underline decoration-white/30 underline-offset-4 hover:decoration-white">Instagram</a></li>
+            <li><a href="#" class="underline decoration-white/30 underline-offset-4 hover:decoration-white">X</a></li>
+            <li><a href="#" class="underline decoration-white/30 underline-offset-4 hover:decoration-white">YouTube</a></li>
+            <li><a href="#" class="underline decoration-white/30 underline-offset-4 hover:decoration-white">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 px-5 py-6 text-center text-sm text-white/60">
+        © <span id="year">2026</span> Orbit. A student project made for learning.
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

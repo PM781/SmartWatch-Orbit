@@ -1,0 +1,129 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; 
+}
+
+body {
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #ffd34e;
+  color: #1f2350;
+}
+
+:focus-visible {
+  outline: 3px solid #ff6f59;
+  outline-offset: 3px;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #1f2350;
+  border-radius: 9999px;
+  background: #1f2350;
+  color: #ffffff;
+  padding: 0.8rem 1.6rem;
+  font-weight: 700;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #1f2350;
+}
+
+.btn-ghost:hover {
+  background: #1f2350;
+  color: #ffffff;
+}
+
+.btn-sun {
+  border-color: #ffd34e;
+  background: #ffd34e;
+  color: #1f2350;
+}
+
+.btn-sun:hover {
+  background: #ffe28a;
+  border-color: #ffe28a;
+}
+
+.btn-light {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: transparent;
+  color: #ffffff;
+}
+
+.btn-light:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #1f2350;
+}
+
+/* Night sky: a few stars, no images needed */
+.stars {
+  background-color: #1f2350;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 8%, #fff 50%, transparent 52%),
+    radial-gradient(1px 1px at 28% 22%, #fff 50%, transparent 52%),
+    radial-gradient(2px 2px at 47% 5%, #ffe9a8 50%, transparent 52%),
+    radial-gradient(1px 1px at 63% 18%, #fff 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 81% 9%, #fff 50%, transparent 52%),
+    radial-gradient(1px 1px at 92% 26%, #fff 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 6% 38%, #fff 50%, transparent 52%),
+    radial-gradient(1px 1px at 95% 52%, #ffe9a8 50%, transparent 52%),
+    radial-gradient(1px 1px at 4% 70%, #fff 50%, transparent 52%),
+    radial-gradient(1.5px 1.5px at 97% 84%, #fff 50%, transparent 52%);
+}
+
+.ecg {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: ecg 3.2s ease-in-out infinite;
+}
+
+@keyframes ecg {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  55%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .ecg {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .btn {
+    transition: none;
+  }
+  .btn:hover {
+    transform: none;
+  }
+}
